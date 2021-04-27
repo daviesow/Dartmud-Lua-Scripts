@@ -1,19 +1,19 @@
 # DartMUDlet
 
-**<p bold align="center">A <a href="https://www.mudlet.org/" target="_blank">Mudlet</a> package for playing <a href="http://dartmud.com" target="_blank">DartMUD</a>.</p>**
+**<p bold align="center">A [Mudlet](https://www.mudlet.org/) package for playing [DartMUD](http://dartmud.com).</p>**
 
 ## Motivation
-Returning to DartMUD after a 10 year absence I found Mudlet and the excellent Dartmud LUA Scripts from missionz3r0. The game has changed a bit since they were last updated so I've picked them up to tweak patterns, fix typos, extend functionality and use GitHub's release feature to deliver the installable package.
+Returning to DartMUD after a 10 year absence, I found people were using Mudlet and discovered the excellent DartMUD LUA Scripts by missionz3r0. The game has changed a bit since they were last updated so I've picked them up to tweak patterns, fix typos, extend functionality and use GitHub's release feature to deliver the installable package.
 
 ## Screenshots
 Screenshot soon....
 
 ## Features
-Dartmudlet does a number of things for you automatically including the obvious visual items like a conversation window up top, your status persisted in the top right.  It also performs the all-important task of counting and reporting improves (for you and for pets), it initiates blocking when you start activities that shouldn't be interrupted like spellcasting and scroll invokation/writing, and much more.
+DartMUDlet does a number of things for you automatically including the obvious visual items like a conversation window up top, your status persisted in the top right.  It also performs the all-important task of counting and reporting improves (for you and for pets), it handles delaying any new commands to the MUD when you are performing interruptable actions like spellcasting and scrollwork, and has many more features useful to DartMUD players.
 
 ## Installation
 + Head over to the project's [releases page](https://github.com/daviesow/dartmudlet/releases) and grab the latest package.zip under Assets.
-+ Launch Mudlet and connect to your DartMud profile.  
++ Launch Mudlet and connect to your DartMUD profile.  
 + Open Mudlet's Package Manager, click Install and point it to your downloaded package.zip.
 + Finally, in the mud text entry box (lower left) issue `/setup` to get things rolling.
 
@@ -25,8 +25,8 @@ Aside from the automatic features described above, there are a few things you ca
 ```
 Some of the rest are:
 ```
-/announce on      - Begin announcing improvements in Brief mode (just a plus, no skill name revealed)
-/announce verbose - Begin announcing improvements including the full name of the skill
+/announce on      - Announce improvements in Brief mode (just a plus, no skill name revealed)
+/announce verbose - Announce improvements including the full name of the skill
 /announce off     - Stop announcing improvements
 ```
 ```
@@ -34,21 +34,41 @@ Some of the rest are:
 ```
 ```
 /block   - Block any new commands from being sent to the MUD, queue them to be sent later.
-           DartMUDlet usually does this for you when it detects the start of uninteruptable actions.
+           DartMUDlet usually does this for you when it detects the start of interuptable actions.
 /unblock - Resume sending commands to the MUD starting with any that were queued while blocking.
-           For when you REALLY need to interrupt your previous action and run from that dragon NOW!
+           For when you MUST interrupt your previous action (e.g. to run from that dragon NOW).
 ```
 ```
-/cast ! <spell> @ <power> <spell args> - Continuously practice cast a spell
+/cast ! <spell> @ <power> <spell args> - Repeat practice casting a spell
 /cast ! off                            - Stop practicing; remember spell and power
-/cast ! resume <spell>                 - Resume practing a spell at the previous power
-/cast ! status <spell>                 - Show the spell and power you were last practicing
+/cast ! resume [<spell>]               - Resume practing last/named spell at the previous power
+/cast ! status [of <spell>]            - Show power used for last/named spell
 ```
-
+```
+/channel <power> <target>     - Repeat channelling aura to target, count how many times you did 
+/channel off                  - Stop channelling, save target and power level for future resume
+/channel resume [<target>]    - Resume channelling last/named target at previous power
+/channel status [of <target>] - Show power channeled to last/named target
+```
+```
+/inscribe ! <spell> @ <power> - Repeat practice inscribing a spell at the given power 
+/inscribe ! off               - Stop practice inscribing 
+/inscribe ! resume [<spell>]  - Resume practice inscribing the last/named spell at last power 
+/inscribe ! adjust  power <power> - Change the power you are using for each practice
+/inscribe ! status [of <spell>]   - Show power used for last/named spell
+```
+```
+/update <who> <skill> <improves> - Set improves for your (or pet's) skill to given total
+/info <skill>                    - Shows current improves/level and improves to reach next
+```
+```
+/who on  - Check who is online every 5 minutes; results are updated in persistent custom area
+/who off - Stop issuing automatic checks every 5 minutes; manual 'who' still updates display
+```
 ## Contribute
-Feel free to fork and submit pull requests to my [dartmudlet repository](https://github.com/daviesow/dartmudlet).
+Feel free to fork and submit pull requests to my [DartMUDlet repository](https://github.com/daviesow/dartmudlet).
 
 ## Credits
-This is a fork of the excellent Dartmud LUA scripts for Mudlet published on github by missionz3r0, based on older zMUD scripts from Tk.
+This is a fork of the excellent DartMUD LUA scripts for Mudlet published on github by missionz3r0, based on older zMUD scripts from Tk.
 ## License
 MIT © [Owen Davies](https://github.com/daviesow)
