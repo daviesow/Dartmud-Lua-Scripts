@@ -18,10 +18,12 @@ DartMUDlet does a number of things for you automatically including the obvious v
 + Finally, in the mud text entry box (lower left) issue `/setup` to get things rolling.
 
 ## How to use?
-Aside from the automatic features described above, there are a few things you can control by entering directives in the mud's text entry box.  You've already seen the first one:
+Aside from the automatic features described above, there are a few things you can control by entering directives in the mud's text entry box:
 
 ```
 /setup - Initialize variables, customize the display, start improve tracking database.
+/unsetup - Remove timers and triggers, deactivate display customizations.
+/resetup - Remove then reinitialize timers, triggers, etc.  Makes changes to DartMUDLet active.
 ```
 Some of the rest are:
 ```
@@ -30,7 +32,7 @@ Some of the rest are:
 /announce off     - Stop announcing improvements
 ```
 ```
-/antispam on|off - suppres repeated lines
+/antispam on|off - suppress repeated lines
 ```
 ```
 /block   - Block any new commands from being sent to the MUD, queue them to be sent later.
